@@ -1,3 +1,4 @@
+1-id
 Who is considered as the master of Greek comedy ?
 A) Aeschylus 		
 B) Sophocles
@@ -5,4 +6,175 @@ C) Aristophanes
 D) Philip
 c
 7
+History
+2-id
+The Caribbean islands are an example of a(n):
+A) Aquifer
+B) Archipelago
+C) Isthmus
+D) Peninsula
+b
+7
+Geography
+3-id
+Which one of the following is used as a moderator in nuclear reactor?
+A) radium
+B) thorium
+C) graphite
+D) ordinary water
+c
+7
+Physics
+4-id
+1010 gram = ……… kg.
+A) 10.10 kg
+B) 101.0 kg
+C) 1.001 kg
+D) 1.01 kg 
+d
+7
+Math
+5-id
+The symbol Ag stands for which element?
+A) Gallium
+B) Gold
+C) Magnesium
+D) Silver
+d
+7
+Chemistry
+6-id
+Recording of sound on tapes was first invented by:
+A) Fleming
+B) Ampere
+C) Poulsen
+D) Becquerrel
+c
+8
+Physics
+7-id
+What kind of number is 37?
+A) Odd
+B) Prime
+C) Both A) and B)
+D) None ot these
+c
+8
+Math
+8-id
+What do you call an atom that has more protons than electrons?
+A) A molecule
+B) An anion
+C) An isotope
+D) A cation
+d
+8
+Chemistry
+9-id
+.......... was the first black republic in the world.
+A) Mali
+B) Haiti
+C) Egypt
+D) Kenya
+b
+8
+History
+10-id
+Which of the following is the first step in a volcanic eruption?
+A) Magma rises through cracks or weaknesses in the earth’s crust.
+B) Pressure builds up inside the Earth
+C) Magma explodes to the surface
+D) Tectonic plates move
+a
+8
+Geography
+11-id
+DNA codes for proteins, which are the building blocks of organisms. What is the most abundant protein in the human body?
+A) Tubulin
+B) Albumin
+C) Collagen
+D) Keratin
+c
+9
+Chemistry
+12-id
+Which one of the following would be most powerful electro magnet?
+A) soft iron
+B) steel
+C) copper
+D) air
+a
+9
+Physics
+13-id
+If 5 boys take 7 hours to pack 35 cartoons, then how many boys can pack 65 cartoons in 3 hours?
+A) 26
+B) 39
+C) 45
+D) None ot these
+d
+9
+Math
+14-id
+You live in Israel and want to travel to Afghanistan. In which direction do you go?
+A) East
+B) North
+C) South
+D) West
+a
+9
+Geography
+15-id
+Who was the first President of USA ?
+A) John Adams	
+B) Andrew Jackson
+C) Thomas Jefferson	
+D) George Washington
+d
+9
+History
+16-id
+You are sailing from Italy to North Africa. Through which body of water do you cross?
+A) The Atlantic Ocean
+B) The Mediterranean Sea
+C) The Aegean Sea
+D) The Adriatic Sea
+b
+10
+Geography
+17-id
+The wages of 10 workers for a six-day week is $ 1200. What are the one day’s wages of 4 workers?
+A) $ 40
+B) $ 32
+C) $ 80
+D) $ 24
+c
+10
+Math
+18-id
+The working principle of a washing machine is
+A) reverse osmosis
+B) diffusion
+C) centrifugation
+D) dialysis
+c
+10
+Physics
+19-id
+Noble gases are inert because they have completed outer electron shells. Which of these elements isn't a noble gas?
+A) Helium
+B) Chlorine
+C) Argon
+D) Krypton
+b
+10
+Chemistry
+20-id
+Who founded Istanbul?
+A) Marco Polo 
+B) Constantine I 
+C) Vasco da Gama 
+D) None of the above
+b
+10
 History
