@@ -1,17 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
+#include "OptionNewGame.h"
+#include "enterQuestion.h"
 using namespace std;
-
-
-int firstDiffCategory(ifstream&, string&, string&, string&, string&, string&, string&, string&, string&, int&, int&, int&);
-int secondDiffCategory(ifstream&, string&, string&, string&, string&, string&, string&, string&, string&, int&, int&, int&);
-int thirdDiffCategory(ifstream&, string&, string&, string&, string&, string&, string&, string&, string&, int&, int&);
-
-int firstDiffCategory(ifstream&, string&, string&, string&, string&, string&, string&, string&, string&, int&, int&, int, int&);
-int secondDiffCategory(ifstream&, string&, string&, string&, string&, string&, string&, string&, string&, int&, int&, int, int&);
-int thirdDiffCategory(ifstream&, string&, string&, string&, string&, string&, string&, string&, string&, int&, int, int&);
-string selectedCategory(int);
 
 
 
@@ -36,8 +29,22 @@ int main() {
 		cin >> option;
 	}
 
-
 	if (option == 1) {
+
+		//Variable
+		fstream myFile;
+		string id;
+		string A, B, C, D;
+		string question;
+		char answer;
+		string correctAns;
+		string difficultly;
+		string category;
+		int reward = 0;
+		int lost = 1;
+		int questionNum = 0;
+		string fileName = "question1.txt";
+
 		cout << "\n";
 		cout << "\n";
 		cout << "\t    1.Math           \n";
@@ -48,15 +55,83 @@ int main() {
 		cout << "\t    6.All category   \n";
 		cout << "Please select a category (1-6): ";
 
-		int option;
 		cin >> option;
 		while (option < 1 || option>6) {
 			cout << "Incorrect input! Try again: ";
 			cin >> option;
 		}
 
+		if (option == 1 || option==2 || option==3 || option==4 || option==5) {
+			optionNewGame(myFile,fileName,id, question, A, B, C, D, correctAns, difficultly, category, reward, lost, option, questionNum);
+
+			if (lost == 0) {
+				cout << "Wrong answer! " << endl;
+				if (reward == 0) {
+					cout << "\t\tGame over! ";
+				}
+				else {
+					cout << "\n\t\tGame over!\n\tCongratulations! You win " << reward << "$." << endl;
+				}
+				return 0;
+			}
+
+			fileName = "question2.txt";
+			optionNewGame(myFile, fileName, id, question, A, B, C, D, correctAns, difficultly, category, reward,lost, option, questionNum);
+			if (lost == 0) {
+				cout << "Wrong answer! " << endl;
+				cout << "\n\t\tGame over!\n\tCongratulations! You win " << reward << "$." << endl;
+				return 0;
+			}
+
+			fileName = "question3.txt";
+			optionNewGame(myFile,fileName,id, question, A, B, C, D, correctAns, difficultly, category, reward,lost, option, questionNum);
+
+			if (lost == 0) {
+				cout << "Wrong answer! " << endl;
+			}
+			cout << "\n\t\tGame over!\n\tCongratulations! You win " << reward << "$." << endl;
+
+		}
+		
+		else if (option == 6) {
+
+			optionNewGame(myFile,fileName,id, question, A, B, C, D, correctAns, difficultly, category, reward, lost, questionNum);
+			if (lost == 0) {
+				cout << "Wrong answer!" << endl;
+				if (reward == 0) {
+					cout << "\t\tGame over! ";
+				}
+				else {
+
+					cout << "\n\t\tGame over!\n\tCongratulations! You win " << reward << "$." << endl;
+				}
+				return 0;
+			}
+
+			fileName = "question2.txt";
+			optionNewGame(myFile,fileName,id, question, A, B, C, D, correctAns, difficultly, category, reward, lost, questionNum);
+			if (lost == 0) {
+				cout << "Wrong answer! " << endl;
+				cout << "\n\t\tGame over!\n\tCongratulations! You won " << reward << "$." << endl;
+				return 0;
+			}
+
+			fileName = "question3.txt";
+			optionNewGame(myFile,fileName,id, question, A, B, C, D, correctAns, difficultly, category, reward,lost, questionNum);
+			if (lost == 0) {
+				cout << "Wrong answer! " << endl;
+			}
+			cout << "\n\t\tGame over!\n\tCongratulations! You win " << reward << "$." << endl;
+
+		}
+	}
+	else if (option == 2) {
+
+	}
+	else if (option == 3) {
 		//Variable
-		ifstream myFile;
+		fstream myFile;
+		string id;
 		string A, B, C, D;
 		string question;
 		int questions;
@@ -68,116 +143,9 @@ int main() {
 		int lost = 1;
 		int questionNum = 0;
 
-		if (option == 1) {
-			firstDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 1, questionNum);
 
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-			secondDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 1, questionNum);
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-
-			thirdDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, 1, questionNum);
-
-			cout << "Congratulations! You won " << reward << "$." << endl;
-
-
-		}
-		else if (option == 2) {
-
-			firstDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 2, questionNum);
-
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-			secondDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 2, questionNum);
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-
-			thirdDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, 2, questionNum);
-
-			cout << "Congratulations! You won " << reward << "$." << endl;
-		}
-		else if (option == 3) {
-			firstDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 3, questionNum);
-
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-			secondDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 3, questionNum);
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-
-			thirdDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, 3, questionNum);
-
-			cout << "Congratulations! You won " << reward << "$." << endl;
-		}
-		else if (option == 4) {
-			firstDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 4, questionNum);
-
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-			secondDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 4, questionNum);
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-
-			thirdDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, 4, questionNum);
-
-			cout << "Congratulations! You won " << reward << "$." << endl;
-		}
-		else if (option == 5) {
-			firstDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 5, questionNum);
-
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-			secondDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, 5, questionNum);
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-
-			thirdDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, 5, questionNum);
-
-			cout << "Congratulations! You won " << reward << "$." << endl;
-		}
-		else if (option == 6) {
-			firstDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, questionNum);
-
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-			secondDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, lost, questionNum);
-			if (lost == 0) {
-				cout << "Congratulations! You won " << reward << "$." << endl;
-				return 0;
-			}
-
-			thirdDiffCategory(myFile, question, A, B, C, D, correctAns, difficultly, category, reward, questionNum);
-
-			cout << "Congratulations! You won " << reward << "$." << endl;
-		}
-	}
-	else if (option == 2) {
-
-	}
-	else if (option == 3) {
+		int level=0;
+		enterQuestion(myFile, level, id, question, A, B, C, D, correctAns, difficultly, category);
 
 	}
 	else if (option == 4) {
@@ -190,399 +158,55 @@ int main() {
 }
 
 
-//Function for option1,2,3,4,5
-int firstDiffCategory(ifstream& myFile, string& question, string& A, string& B, string& C, string& D,
-	string& correctAns, string& difficultly, string& category, int& reward, int& lost, int option, int& questionNum) {
 
-	string selectedCat = selectedCategory(option);
 
-	char answer = ' ';
-	difficultly[0] = 48;
-	char reverseDiff = difficultly[0];
-	myFile.open("question1.txt");
-	if (!myFile.is_open()) {
-		cout << "File doesn't open" << endl;
+
+
+
+
+
+
+
+
+/*void Jokers(string &correctAns) {
+	//Jokers
+	string joker;
+	cout << "You can use jokers: 50/50 , help from the audience, call to friend." << endl;
+	cout << "Are you want to use some of them? (yes or no): ";
+	cin >> joker;
+	transform(joker.begin(), joker.end(), joker.begin(), ::tolower);
+	while (joker != "yes" || joker != "no") {
+		cout << "Invalid input! try again: ";
+		cin >> joker;
+		transform(joker.begin(), joker.end(), joker.begin(), ::tolower);
 	}
-	else {
 
-		do {
-			getline(myFile, question);
-			getline(myFile, A);
-			getline(myFile, B);
-			getline(myFile, C);
-			getline(myFile, D);
-			getline(myFile, correctAns);
-			getline(myFile, difficultly);
-			getline(myFile, category);
-
-			if (difficultly[0] - reverseDiff != 1 || category != selectedCat) {
-
-				continue;
+	if (joker == "yes") {
+		int choice;
+		cout << "Enter your choice (1 - 50/50; 2- help from the audience; 3- call to frien; 0 - Exit): ";
+		cin >> choice;
+		while (choice != 0 || choice != 1 || choice != 2 || choice != 3) {
+			cout << "Invalid input! Try again: ";
+			cin >> choice;
+		}
+		switch (choice) {
+		case 1:
+			if (correctAns[0] == 'a') {
+				cout << "Answers b and c are eliminated. Choose a or b: ";
 			}
-
-			questionNum++;
-			cout << questionNum << ".";
-			cout << question << endl;
-			cout << A << endl;
-			cout << B << endl;
-			cout << C << endl;
-			cout << D << endl;
-			cin >> answer;
-			cout << '\n';
-
-			if (answer != correctAns[0]) {
-				lost = 0;
-				return reward;
+			else if (correctAns[0] == 'b') {
+				cout << "Answers a and d are eliminated. Choose b or c: ";
 			}
-			reward += 100;
-
-			question.clear();
-			A.clear();
-			B.clear();
-			C.clear();
-			D.clear();
-			correctAns.clear();
-			reverseDiff = difficultly[0];
-			difficultly.clear();
-
-		} while (answer == correctAns[0] || !myFile.eof());
-
-	}
-	myFile.clear();
-	myFile.close();
-	return reward;
-}
-
-int secondDiffCategory(ifstream& myFile, string& question, string& A, string& B, string& C, string& D,
-	string& correctAns, string& difficultly, string& category, int& reward, int& lost, int option, int& questionNum) {
-
-	string selectedCat = selectedCategory(option);
-
-	char answer = ' ';
-	difficultly[0] = 51;
-	char reverseDiff = difficultly[0];
-	myFile.open("question2.txt");
-	if (!myFile.is_open()) {
-		cout << "File doesn't open" << endl;
-	}
-	else {
-
-		do {
-			getline(myFile, question);
-			getline(myFile, A);
-			getline(myFile, B);
-			getline(myFile, C);
-			getline(myFile, D);
-			getline(myFile, correctAns);
-			getline(myFile, difficultly);
-			getline(myFile, category);
-
-			if (difficultly[0] - reverseDiff != 1 || category != selectedCat) {
-
-				continue;
+			else if (correctAns[0] == 'c') {
+				cout << "Answers b and d are eliminated. Choose a or c:  ";
 			}
-
-			questionNum++;
-			cout << questionNum << ".";
-			cout << question << endl;
-			cout << A << endl;
-			cout << B << endl;
-			cout << C << endl;
-			cout << D << endl;
-			cin >> answer;
-			cout << '\n';
-
-			if (answer != correctAns[0]) {
-				lost = 0;
-				return reward;
+			else if (correctAns[0] == 'd') {
+				cout << "Answers a and c are eliminated. Choose b or d: ";
 			}
-			reward += 100;
+			break;
+		case 2:
 
-			question.clear();
-			A.clear();
-			B.clear();
-			C.clear();
-			D.clear();
-			correctAns.clear();
-			reverseDiff = difficultly[0];
-			difficultly.clear();
-
-
-
-		} while (answer == correctAns[0] || !myFile.eof());
-	}
-	myFile.clear();
-	myFile.close();
-	return reward;
-
-}
-
-int thirdDiffCategory(ifstream& myFile, string& question, string& A, string& B, string& C, string& D,
-	string& correctAns, string& difficultly, string& category, int& reward, int option, int& questionNum) {
-
-	string selectedCat = selectedCategory(option);
-
-	char answer = ' ';
-	difficultly[0] = 54;
-	char reverseDiff = difficultly[0];
-	myFile.open("question3.txt");
-	if (!myFile.is_open()) {
-		cout << "File doesn't open" << endl;
-	}
-	else {
-
-		do {
-			getline(myFile, question);
-			getline(myFile, A);
-			getline(myFile, B);
-			getline(myFile, C);
-			getline(myFile, D);
-			getline(myFile, correctAns);
-			getline(myFile, difficultly);
-			getline(myFile, category);
-
-			if (difficultly[0] - reverseDiff != 1 || category != selectedCat) {
-
-				continue;
-			}
-
-			questionNum++;
-			cout << questionNum << ".";
-			cout << question << endl;
-			cout << A << endl;
-			cout << B << endl;
-			cout << C << endl;
-			cout << D << endl;
-			cin >> answer;
-			cout << '\n';
-
-			if (answer != correctAns[0]) {
-				return reward;
-			}
-			reward += 100;
-
-			question.clear();
-			A.clear();
-			B.clear();
-			C.clear();
-			D.clear();
-			correctAns.clear();
-			reverseDiff = difficultly[0];
-			difficultly.clear();
-
-		} while (answer == correctAns[0] || !myFile.eof());
-	}
-	myFile.clear();
-	myFile.close();
-	return reward;
-
-}
-
-string selectedCategory(int option) {
-	string selectedCat;
-	switch (option) {
-	case 1:
-		selectedCat = "Math";
-		break;
-	case 2:
-		selectedCat = "Geography";
-		break;
-	case 3:
-		selectedCat = "History";
-		break;
-	case 4:
-		selectedCat = "Physics";
-		break;
-	case 5:
-		selectedCat = "Chemistry";
-		break;
-	}
-
-	return selectedCat;
-}
-
-
-//Funkction for option 6
-int firstDiffCategory(ifstream& myFile, string& question, string& A, string& B, string& C, string& D,
-	string& correctAns, string& difficultly, string& category, int& reward, int& lost, int& questionNum) {
-
-	char answer = ' ';
-	difficultly[0] = 48;
-	char reverseDiff = difficultly[0];
-
-
-
-	myFile.open("question1.txt");
-	if (!myFile.is_open()) {
-		cout << "File doesn't open" << endl;
-	}
-	else {
-
-		do {
-			getline(myFile, question);
-			getline(myFile, A);
-			getline(myFile, B);
-			getline(myFile, C);
-			getline(myFile, D);
-			getline(myFile, correctAns);
-			getline(myFile, difficultly);
-			getline(myFile, category);
-
-			if (difficultly[0] - reverseDiff != 1) {
-
-				continue;
-			}
-			questionNum++;
-			cout << questionNum << ".";
-			cout << question << endl;
-			cout << A << endl;
-			cout << B << endl;
-			cout << C << endl;
-			cout << D << endl;
-			cin >> answer;
-			cout << '\n';
-
-			if (answer != correctAns[0]) {
-				lost = 0;
-				return reward;
-			}
-			reward += 100;
-
-			question.clear();
-			A.clear();
-			B.clear();
-			C.clear();
-			D.clear();
-			correctAns.clear();
-			reverseDiff = difficultly[0];
-			difficultly.clear();
-
-		} while (answer == correctAns[0] || !myFile.eof());
+		}
 
 	}
-	myFile.clear();
-	myFile.close();
-	return reward;
-}
-
-int secondDiffCategory(ifstream& myFile, string& question, string& A, string& B, string& C, string& D,
-	string& correctAns, string& difficultly, string& category, int& reward, int& lost, int& questionNum) {
-
-	char answer = ' ';
-	difficultly[0] = 51;
-	char reverseDiff = difficultly[0];
-	myFile.open("question2.txt");
-	if (!myFile.is_open()) {
-		cout << "File doesn't open" << endl;
-	}
-	else {
-
-		do {
-			getline(myFile, question);
-			getline(myFile, A);
-			getline(myFile, B);
-			getline(myFile, C);
-			getline(myFile, D);
-			getline(myFile, correctAns);
-			getline(myFile, difficultly);
-			getline(myFile, category);
-
-			if (difficultly[0] - reverseDiff != 1) {
-
-				continue;
-			}
-			questionNum++;
-			cout << questionNum << ".";
-			cout << question << endl;
-			cout << A << endl;
-			cout << B << endl;
-			cout << C << endl;
-			cout << D << endl;
-			cin >> answer;
-			cout << '\n';
-
-			if (answer != correctAns[0]) {
-				lost = 0;
-				return reward;
-			}
-			reward += 100;
-
-			question.clear();
-			A.clear();
-			B.clear();
-			C.clear();
-			D.clear();
-			correctAns.clear();
-			reverseDiff = difficultly[0];
-			difficultly.clear();
-
-
-
-		} while (answer == correctAns[0] || !myFile.eof());
-	}
-	myFile.clear();
-	myFile.close();
-	return reward;
-
-}
-
-int thirdDiffCategory(ifstream& myFile, string& question, string& A, string& B, string& C, string& D,
-	string& correctAns, string& difficultly, string& category, int& reward, int& questionNum) {
-
-	char answer = ' ';
-	difficultly[0] = 54;
-	char reverseDiff = difficultly[0];
-	myFile.open("question3.txt");
-	if (!myFile.is_open()) {
-		cout << "File doesn't open" << endl;
-	}
-	else {
-
-		do {
-			getline(myFile, question);
-			getline(myFile, A);
-			getline(myFile, B);
-			getline(myFile, C);
-			getline(myFile, D);
-			getline(myFile, correctAns);
-			getline(myFile, difficultly);
-			getline(myFile, category);
-
-			if (difficultly[0] - reverseDiff != 1) {
-
-				continue;
-			}
-
-			questionNum++;
-			cout << questionNum << ".";
-			cout << question << endl;
-			cout << A << endl;
-			cout << B << endl;
-			cout << C << endl;
-			cout << D << endl;
-			cin >> answer;
-			cout << '\n';
-
-			if (answer != correctAns[0]) {
-				return reward;
-			}
-			reward += 100;
-
-			question.clear();
-			A.clear();
-			B.clear();
-			C.clear();
-			D.clear();
-			correctAns.clear();
-			reverseDiff = difficultly[0];
-			difficultly.clear();
-
-		} while (answer == correctAns[0] || !myFile.eof());
-	}
-	myFile.clear();
-	myFile.close();
-	return reward;
-
-}
-
-
+}*/
