@@ -28,8 +28,6 @@ string readFile(fstream& myFile, string& fileName, string& id, string& question,
 	return id;
 }
 
-
-
 void writeQuestion(fstream& myFile, string& fileName, string& id, string& question, string& A, string& B, string& C, string& D,
 	string& correctAns, string& difficultly, string& category, int& level) {
 	string idNumb = readFile(myFile, fileName, id, question, A, B, C, D, correctAns, difficultly, category);
@@ -53,7 +51,7 @@ void writeQuestion(fstream& myFile, string& fileName, string& id, string& questi
 	}
 	else {
 
-		myFile << '\n'<< newId << '\n';
+		myFile << '\n'<< newId << "-id\n";
 		cin.ignore();
 
 		cout << "Enter a question: ";
