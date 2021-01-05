@@ -1,10 +1,10 @@
 1-id
-The number pi is?
-A) 3,14
-B) 2,73
-C) 4,13
-D) 3,72
-a
+What is the value of number pi?
+A) 3,41
+B) 3,14
+C) 4,31
+D) 2,73
+b
 1
 Math
 2-id
