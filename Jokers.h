@@ -56,50 +56,50 @@ bool x_isUsed = false;
 bool y_isUsed = false;
 bool z_isUsed = false;
 
-string wantToUseJoker(bool& x_isUsed, bool& y_isUsed, bool& z_isUsed,string &YesOrNo) {
+string wantToUseJoker(bool& x_isUsed, bool& y_isUsed, bool& z_isUsed, string& YesOrNo) {
 
 	if (!x_isUsed && !y_isUsed && !z_isUsed) {
 		cout << "You can use jokers: 50/50 , help from the audience, call to friend." << endl;
 		cout << "Are you want to use some of them? (yes or no): ";
-		
+
 	}
 
 	if (x_isUsed && !y_isUsed && !z_isUsed) {
 		cout << "You can use jokers: help from the audience, call to friend. " << endl;
 		cout << "Are you want to use some of them? (yes or no): ";
-		
+
 	}
 
 	if (!x_isUsed && y_isUsed && !z_isUsed) {
 		cout << "You can use jokers: 50/50, call to friend. " << endl;
 		cout << "Are you want to use some of them? (yes or no): ";
-		
+
 	}
 
 	if (!x_isUsed && !y_isUsed && z_isUsed) {
 		cout << "You can use jokers: 50/50, help from the audience. " << endl;
 		cout << "Are you want to use some of them? (yes or no): ";
-		
+
 	}
 
 	if (x_isUsed && y_isUsed && !z_isUsed) {
 		cout << "You can use joker: call to friend." << endl;
 		cout << "Are you want to use it? (yes or no): ";
-	
+
 	}
 
 	if (x_isUsed && !y_isUsed && z_isUsed) {
 		cout << "You can use joker: help from the audience." << endl;
 		cout << "Are you want to use it? (yes or no): ";
-		
+
 	}
 
 	if (!x_isUsed && y_isUsed && z_isUsed) {
 		cout << "You can use joker: 50/50." << endl;
 		cout << "Are you want to use it? (yes or no): ";
-		
+
 	}
-	
+
 	if (x_isUsed && y_isUsed && z_isUsed) {
 		YesOrNo = "no";
 		return YesOrNo;
@@ -116,7 +116,7 @@ string wantToUseJoker(bool& x_isUsed, bool& y_isUsed, bool& z_isUsed,string &Yes
 	return YesOrNo;
 }
 
-void choiceForJoker(char &choice) {
+void choiceForJoker(char& choice) {
 	if (!x_isUsed && !y_isUsed && !z_isUsed) {
 		cout << "Enter your choice (X - 50/50; Y- help from the audience; Z- call to friend; 0 - Exit): ";
 		cin >> choice;
@@ -154,7 +154,7 @@ void choiceForJoker(char &choice) {
 		cout << "Enter your choice (X - 50/50; Y- help from the audience; 0 - Exit): ";
 		cin >> choice;
 		choice = toupper(choice);
-		while (choice != 'X' && choice != 'Y' &&  choice != '0') {
+		while (choice != 'X' && choice != 'Y' && choice != '0') {
 			cout << "Incorrect input! Try again: ";
 			cin >> choice;
 			choice = toupper(choice);
@@ -199,7 +199,7 @@ void jokers(string& correctAns, string& fileName, char& choice, string& question
 
 	string YesOrNo;
 
-	YesOrNo=wantToUseJoker(x_isUsed, y_isUsed, z_isUsed,YesOrNo);
+	YesOrNo = wantToUseJoker(x_isUsed, y_isUsed, z_isUsed, YesOrNo);
 
 	if (YesOrNo == "yes") {
 

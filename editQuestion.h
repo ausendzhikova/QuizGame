@@ -26,19 +26,19 @@ string searchFileName(string& fileName, int& level) {
 	return fileName;
 }
 
-void editQuestion(int &level,string &fileName,string &id,string &question, string &A,string &B, string &C,string &D,
-	string &correctAns,string &difficultly,string &category,bool &isNotFound) {
+void editQuestion(int& level, string& fileName, string& id, string& question, string& A, string& B, string& C, string& D,
+	string& correctAns, string& difficultly, string& category, bool& isNotFound) {
 	ifstream sourceFile;
 	ofstream destinationFile;
 	string searchId;
 	string newData;
-	
+
 	cout << "What is id number of question? ";
 	cin >> searchId;
 	cout << "What is difficultly of question?";
 	cin >> level;
 
-	fileName = searchFileName(fileName,level);
+	fileName = searchFileName(fileName, level);
 	sourceFile.open(fileName);
 	if (!sourceFile.is_open()) {
 		cout << "Source file doesn't open." << endl;
@@ -51,8 +51,8 @@ void editQuestion(int &level,string &fileName,string &id,string &question, strin
 		return;
 	}
 
-	while (getline(sourceFile,id) && getline(sourceFile,question)&&getline(sourceFile,A) && getline(sourceFile, B) && getline(sourceFile, C)
-	&& getline(sourceFile, D) && getline(sourceFile, correctAns)&& getline(sourceFile, difficultly)&& getline(sourceFile, category)) {
+	while (getline(sourceFile, id) && getline(sourceFile, question) && getline(sourceFile, A) && getline(sourceFile, B) && getline(sourceFile, C)
+		&& getline(sourceFile, D) && getline(sourceFile, correctAns) && getline(sourceFile, difficultly) && getline(sourceFile, category)) {
 		if (searchId == id) {
 			isNotFound = false;
 			cin.ignore();
@@ -80,13 +80,13 @@ void editQuestion(int &level,string &fileName,string &id,string &question, strin
 		else {
 			destinationFile << id << '\n';
 			destinationFile << question << '\n';
-			destinationFile <<A << '\n';
+			destinationFile << A << '\n';
 			destinationFile << B << '\n';
 			destinationFile << C << '\n';
 			destinationFile << D << '\n';
 			destinationFile << correctAns << '\n';
 			destinationFile << difficultly << '\n';
-			destinationFile <<category  << '\n';
+			destinationFile << category << '\n';
 
 
 
