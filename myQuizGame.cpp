@@ -70,7 +70,7 @@ int main() {
 			optionNewGame(myFile, fileName, id, question, A, B, C, D, correctAns, difficultly, category, reward, lost, option, questionNum);
 
 			if (lost == 0) {
-				cout << "Wrong answer! The correct answer is:  "<<correctAns[0] << endl;
+				cout << "Wrong answer! The correct answer is:  " << correctAns[0] << endl;
 				if (reward == 0) {
 					cout << "\t\tGame over! ";
 				}
