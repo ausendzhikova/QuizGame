@@ -1,135 +1,135 @@
 1-id
 You can't live without iron. Where in the body is most of the iron located?
-A) Your brain
-B) Your skin
-C) Your bones
-D) Your blood
+Your brain
+Your skin
+Your bones
+Your blood
 d
 4
 Chemistry
 2-id
 What is the length of the day?
-A) 23:52:46
-B) 24 hours
-C) 12 hours
-D) 23 hours
+23:52:46
+24 hours
+12 hours
+23 hours
 a
 4
 Physics
 3-id
 The area between the Mississippi River and the Rocky Mountains is mostly:
-A) Desert
-B) Hills
-C) Prairie
-D) Woodland
+Desert
+Hills
+Prairie
+Woodland
 c
 4
 Geography
 4-id
 ........... was the first woman name appeared in history
-A) Jansi Rani	
-B) Queen Hatshepsut
-C) Queen Elizabeth I	
-D) Golda Meir
+Jansi Rani	
+Queen Hatshepsut
+Queen Elizabeth I	
+Golda Meir
 b
 4
 History
 5-id
 The square of the imaginary unit is:
-A) -1
-B) 1
-C) i
-D) -i
+-1
+1
+i
+-i
 a
 4
 Math
 6-id
 What is the capital of China?
-A) Tokyo
-B) Beijing
-C) Shanghai
-D) Seoul
+Tokyo
+Beijing
+Shanghai
+Seoul
 b
 5
 Geography
 7-id
 How many lines can be drawn through two points?
-A) 1
-B) 2
-C) 3
-D) Not possible
+1
+2
+3
+Not possible
 a
 5
 Math
 8-id
-Pakistan celebrated its Independence day on ………………….
-A) 14th August
-B) 16th August
-C) 25th January
-D) 31 January
+Pakistan celebrated its Independence day on ........
+14th August
+16th August
+25th January
+31 January
 a
 5
 History
 9-id
 Which one of the following is the unit of activity of a radioactive source?
-A) Siemens
-B) Lux
-C) Tesla
-D) Becquerrel
+Siemens
+Lux
+Tesla
+Becquerrel
 d
 5
 Physics
 10-id
 What is the most common isotope of hydrogen?
-A) Tritum
-B) Deuterium
-C) Protium
-D) Hydrogen only has one isotope!
+Tritum
+Deuterium
+Protium
+Hydrogen only has one isotope!
 c
 5
 Chemistry
 11-id
 Factors of 9 are ......
-A) 1,2 and 3
-B) 1,2,3 and 9
-C) 1,6 and 9
-D) None of these
+1,2 and 3
+1,2,3 and 9
+1,6 and 9
+None of these
 d
 6
 Math
 12-id
 Which country gained Independence in 2006 ?
-A) Sudan
-B) Nigeria
-C) Morocco
-D) Montenegro
+Sudan
+Nigeria
+Morocco
+Montenegro
 d
 6
 History
 13-id
 What is the capital of Indonesia?
-A) Surabaya
-B) Jakarta
-C) Singapore
-D) Java
+Surabaya
+Jakarta
+Singapore
+Java
 b
 6
 Geography
 14-id
 Which of these elements is a nonmetal?
-A) Sulfur
-B) Aluminum
-C) Manganese
-D) Beryllium
+Sulfur
+Aluminum
+Manganese
+Beryllium
 a
 6
 Chemistry
 15-id
 Oil or soap film when in daylight appears coloured because of :
-A) reflection
-B) interfence
-C) refraction
-D) surface energy
+reflection
+interfence
+refraction
+surface energy
 b
 6
 Physics
