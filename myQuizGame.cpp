@@ -1,11 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <stdio.h>
-#include <algorithm>
-#include "OptionNewGame.h"
-#include "enterQuestion.h"
-#include "editQuestion.h"
+#include "option-new-game.h"
+#include "enter-question.h"
+#include "edit-question.h"
 using namespace std;
 
 
@@ -27,6 +25,8 @@ int main() {
 	cout << "Please select an option (1-4): ";
 	cin >> option;
 	while (option < 1 || option>4) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		cout << "Incorrect input! Try again: ";
 		cin >> option;
 	}
@@ -60,6 +60,8 @@ int main() {
 
 		cin >> option;
 		while (option < 1 || option>6) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Incorrect input! Try again: ";
 			cin >> option;
 		}
@@ -131,20 +133,20 @@ int main() {
 		}
 	}
 	else if (option == 2) {
-
-		int level = 0;
+		string level;
+		
 		enterQuestion(myFile, level, id, question, A, B, C, D, correctAns, difficultly, category);
 	}
 	else if (option == 3) {
-		bool isNotFound = true;
-		int level = 0;
+		bool isFound = false;
+		string level;
 
-		editQuestion(level, fileName, id, question, A, B, C, D, correctAns, difficultly, category, isNotFound);
+		
+		editQuestion(level, fileName, id, question, A, B, C, D, correctAns, difficultly, category, isFound);
 
-		while (isNotFound) {
+		while (!isFound) {
 			cout << "\nQuestion with this id doesn't exist. Try again!" << endl;
-			cout << '\n';
-			editQuestion(level, fileName, id, question, A, B, C, D, correctAns, difficultly, category, isNotFound);
+			editQuestion(level, fileName, id, question, A, B, C, D, correctAns, difficultly, category, isFound);
 		}
 	}
 	else if (option == 4) {
